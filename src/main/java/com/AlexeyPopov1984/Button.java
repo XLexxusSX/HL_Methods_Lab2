@@ -1,14 +1,10 @@
 package com.AlexeyPopov1984;
 
 public class Button {
-    static int butPressed;
+    static int butPressed = 0;
 
-    Button() {
+    public void click() {
         butPressed++;
-    }
-
-    public int click(int butPressed) {
-        //this.butPressed += butPressed;
-        return butPressed;
+        System.out.print("\nKnoka nazhata " + butPressed + " raz\n");
     }
 }
