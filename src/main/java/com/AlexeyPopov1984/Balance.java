@@ -5,17 +5,18 @@ import java.util.Scanner;
 class Balance {
     private static double rightWeight = 0;
     private static double leftWeight = 0;
-    private static boolean tag = true;
 
-    public static void dataEntryTask_2() {
+    static void dataEntryTask_2() {
 
         rightWeight = 0;
         leftWeight = 0;
+        boolean tag = true;
 
         Scanner scanner = new Scanner(System.in);
 
         do {
             if (tag) {
+                System.out.print("\nZADACHA 2:");
                 System.out.println("\nVes chashy L = " + leftWeight);
                 System.out.println("Ves chashy R = " + rightWeight);
                 tag = false;

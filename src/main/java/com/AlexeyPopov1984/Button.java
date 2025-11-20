@@ -5,7 +5,8 @@ import java.util.Scanner;
 class Button {
     static int butPressed = 0;
 
-    public static void dataEntryTask_1() {
+    static void dataEntryTask_1() {
+        System.out.println("\nZADACHA 1:");
         Scanner scannerPressButton = new Scanner(System.in);
 
         do {
