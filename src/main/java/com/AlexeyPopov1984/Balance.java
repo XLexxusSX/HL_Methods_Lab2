@@ -56,7 +56,7 @@ class Balance {
                             break;
                         } else input = "Error. Weight < 0";
                     } catch (NumberFormatException e) {
-                        System.out.print("\nNevernoe chislo ili ves stal < 0, povtorite vvod L: ");
+                        System.out.print("\nNevernoe chislo ili ves stal < 0, povtorite vvod R: ");
                         input = scanner.nextLine();
                     }
                 } while (true);
