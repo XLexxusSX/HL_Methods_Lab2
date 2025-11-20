@@ -1,10 +1,29 @@
 package com.AlexeyPopov1984;
 
-public class Button {
+import java.util.Scanner;
+
+class Button {
     static int butPressed = 0;
 
-    public void click() {
+    public static void dataEntryTask_1() {
+        Scanner scannerPressButton = new Scanner(System.in);
+
+        do {
+            System.out.print("\nVvedite 'B' ili 'b' dlya nazhatiya knopki ('q' - dlya vyhoda): ");
+            String input = scannerPressButton.nextLine();
+
+            if (input.equalsIgnoreCase("b")) {
+                System.out.print("\nKolichestvo nazhatiy knopki: " + click() + "\n");
+            }
+
+            if (input.equalsIgnoreCase("q"))
+                break;
+
+        } while (true);
+    }
+
+    private static int click() {
         butPressed++;
-        System.out.print("\nKnoka nazhata " + butPressed + " raz\n");
+        return butPressed;
     }
 }
