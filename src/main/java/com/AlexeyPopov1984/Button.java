@@ -6,11 +6,12 @@ class Button {
     static int butPressed = 0;
 
     static void dataEntryTask_1() {
+        butPressed = 0;
         System.out.println("\nZADACHA 1:");
         Scanner scannerPressButton = new Scanner(System.in);
 
         do {
-            System.out.print("\nVvedite 'B' ili 'b' dlya nazhatiya knopki ('q' - dlya vyhoda): ");
+            System.out.print("Vvedite 'B' ili 'b' dlya nazhatiya knopki ('q' - dlya vyhoda): ");
             String input = scannerPressButton.nextLine();
 
             if (input.equalsIgnoreCase("b")) {

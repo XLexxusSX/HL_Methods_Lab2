@@ -31,6 +31,10 @@ class Main {
                 Balance.dataEntryTask_2();
             else if (input.equals("3"))
                 Bell.dataEntryTask_3();
+            else if (input.equals("4")) {
+                OddEvenSeparator oddEvenSeparator = new OddEvenSeparator();
+                oddEvenSeparator.dataEntryTask_4();
+            }
             else
                 System.out.println("\nNeverniy vvod. Poprobuyte snova");
         } while (true);

@@ -9,7 +9,7 @@ class Bell {
         System.out.println("\nZADACHA 3:");
 
         do {
-            System.out.print("\nVvedite kolichestvo slov \"ding\" i \"dong\" v stroke ('q' - dlya vyhoda): ");
+            System.out.print("Vvedite kolichestvo slov \"ding\" i \"dong\" v stroke ('q' - dlya vyhoda): ");
             String input = scanner.nextLine();
 
             if (input.equalsIgnoreCase("q"))
@@ -25,7 +25,7 @@ class Bell {
                     System.out.println(sound(soundCount));
                 }
             } catch (NumberFormatException e) {
-                System.out.println("\nNeverniy vvod, povtorite");
+                System.out.println("\nNeverniy vvod ili ogromnoe chislo, povtorite");
             }
         } while (true);
     }
