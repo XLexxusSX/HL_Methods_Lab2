@@ -55,8 +55,8 @@ class OddEvenSeparator {
                 try {
                     num = Long.parseLong(inputNum);
                     strOfInts.append(num).append(" ");
-                    evens += Even(num).toString();
-                    odds += Odd(num).toString();
+                    evens = evens.concat(Even(num).toString());
+                    odds = odds.concat(Odd(num).toString());
                 } catch (NumberFormatException e) {
                     System.out.println("Neverniy vvod ili slishkom bol'shoe chislo (diapazon: ot " + Long.MIN_VALUE + " do " + Long.MAX_VALUE + "). Prodolzhayte ('q' - zakonchit'): ");
                 }
