@@ -36,7 +36,8 @@ class Main {
                 oddEvenSeparator.dataEntryTask_4();
             }
             else if (input.equals("5")) {
-                Table table = new Table();
+                Table tableInit = new Table();
+                Table table = new Table(tableInit.rows(), tableInit.cols());
                 table.dataEntryTask_5();
             }
             else
