@@ -37,8 +37,9 @@ class Main {
             }
             else if (input.equals("5")) {
                 Table tableInit = new Table();
-                Table table = new Table(tableInit.rows(), tableInit.cols());
+                Table table = new Table(tableInit.setRows(), tableInit.setCols());
                 table.dataEntryTask_5();
+                table.average();
             }
             else
                 System.out.println("\nNeverniy vvod. Poprobuyte snova");
