@@ -39,7 +39,6 @@ class Main {
                 Table tableInit = new Table();
                 Table table = new Table(tableInit.setRows(), tableInit.setCols());
                 table.dataEntryTask_5();
-                table.average();
             }
             else
                 System.out.println("\nNeverniy vvod. Poprobuyte snova");
