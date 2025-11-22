@@ -17,7 +17,7 @@ public class Table {
         inputIcount = rows;
         inputJcount = cols;
         arrTable = new int[inputIcount][inputJcount];
-        onceTask5 = true;
+        //onceTask5 = true;
     }
 
     void dataEntryTask_5() {
@@ -72,7 +72,7 @@ public class Table {
                 } else if (input.equals("2")) {
 
                     System.out.println("METOD: \"table.setValue(row, col, value)\"");
-                    int rowChoice = choiceRow(), colChoice = choiceCol(), value = 0;
+                    int rowChoice = choiceRow(), colChoice = choiceCol(), value;
 
                     if (onceTask5) {
                         for (int i = 0; i < inputIcount; i++) {
@@ -208,7 +208,7 @@ public class Table {
     }
 
     int choiceRow() {
-        int choiceRow = 0;
+        int choiceRow;
         do {
             System.out.print("\nVvedite nomer stroki (" + inputIcount + " > Row >= 0): ");
 
@@ -231,7 +231,7 @@ public class Table {
     }
 
     int choiceCol() {
-        int choiceCol = 0;
+        int choiceCol;
         do {
             System.out.print("\nVvedite nomer stolbetsa (" + inputJcount + " > Col >= 0): ");
 

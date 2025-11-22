@@ -36,6 +36,10 @@ class Main {
                 oddEvenSeparator.dataEntryTask_4();
             }
             else if (input.equals("5")) {
+                //Чтобы не забыть, немного поясню (сегодня 23 ноября 2025г.): у меня 2 метода инициализируют таблицу
+                //при выборе задания 5 лабораторной 2. Методы setRows() и setCols(). Так как нет возможности создать
+                //один объект класса Table с помощью конструктора, принимающего в качестве параметров 2 метода этого же
+                //класса, то пришлось изощриться так, как это сделано ниже.
                 Table tableInit = new Table();
                 Table table = new Table(tableInit.setRows(), tableInit.setCols());
                 table.dataEntryTask_5();
