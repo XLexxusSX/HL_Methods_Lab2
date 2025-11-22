@@ -3,15 +3,15 @@ package com.AlexeyPopov1984;
 import java.util.Scanner;
 
 class OddEvenSeparator {
-    protected String evens = "";
-    protected String odds = "";
+    private String evens = "";
+    private String odds = "";
 
     void dataEntryTask_4() {
         System.out.println("\nZADACHA 4:");
         addNumber();
     }
 
-    protected void addNumber() {
+    private void addNumber() {
         String inputNum = "";
         String inputAnswer;
         StringBuilder strOfInts = new StringBuilder();
@@ -64,7 +64,7 @@ class OddEvenSeparator {
             } while (true);
     }
 
-    protected StringBuilder Even (Long num) {
+    private StringBuilder Even (Long num) {
         StringBuilder evenNums = new StringBuilder();
 
         if (num % 2 == 0)
@@ -73,7 +73,7 @@ class OddEvenSeparator {
         return evenNums;
     }
 
-    protected StringBuilder Odd (Long num) {
+    private StringBuilder Odd (Long num) {
         StringBuilder oddNums = new StringBuilder();
 
         if (num % 2 == 1 || num % 2 == -1)

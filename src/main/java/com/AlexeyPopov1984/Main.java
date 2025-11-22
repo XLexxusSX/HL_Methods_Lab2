@@ -35,6 +35,10 @@ class Main {
                 OddEvenSeparator oddEvenSeparator = new OddEvenSeparator();
                 oddEvenSeparator.dataEntryTask_4();
             }
+            else if (input.equals("5")) {
+                Table table = new Table();
+                table.dataEntryTask_5();
+            }
             else
                 System.out.println("\nNeverniy vvod. Poprobuyte snova");
         } while (true);
