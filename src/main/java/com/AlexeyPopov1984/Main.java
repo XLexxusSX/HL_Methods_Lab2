@@ -41,9 +41,137 @@ class Main {
                 //один объект класса Table с помощью одного конструктора, принимающего в качестве параметров эти 2 метода
                 // этого же класса, чтобы соблюсти условия задачи (), то пришлось изощриться так, как это сделано ниже.
                 // Условие задачи: "при инициализации Table(rows, cols) экземпляру передаются число строк и столбцов в таблице"
+                // В первом варианте данной программы поля и методы класса Table имели модификатор private. Это второй вариант с
+                // возможностью обращаться к полям и методам через объект table (как в условии задачи 5 лабы 2).
+
                 Table tableInit = new Table();
                 Table table = new Table(tableInit.setRows(), tableInit.setCols());
-                table.dataEntryTask_5();
+
+                System.out.println("\nTablitsa (rows = " + table.inputIcount + ", cols = " + table.inputJcount + "):");
+
+                if (table.inputIcount != 0 && table.inputJcount != 0)
+                    for (int i = 0; i < table.inputIcount; i++) {
+                        for (int j = 0; j < table.inputJcount; j++) {
+                            table.arrTable[i][j] = 0;
+                            System.out.print(table.arrTable[i][j] + "\t\t\t");
+                        }
+                        System.out.println();
+                    }
+
+                if (table.inputIcount != 0 && table.inputJcount != 0)
+                    do {
+                        System.out.println("\nMetody ob'ekta \"table\" klassa \"Table\":");
+                        System.out.println("1. table.getValue(row, col)...");
+                        System.out.println("2. table.setValue(row, col, value)...");
+                        System.out.println("3. table.rows()...");
+                        System.out.println("4. table.cols()...");
+                        System.out.println("5. table.toString()...");
+                        System.out.println("6. table.average()...\n");
+                        System.out.print("Vvedite nomer metoda (ot 1 do 6) ili 'q' dlya vyhoda: ");
+
+                        input = table.scanner.nextLine();
+
+                        if (input.equalsIgnoreCase("q"))
+                            break;
+                        else if (input.equals("1")) {
+
+                            System.out.println("METOD: \"table.getValue(row, col)\"");
+                            System.out.println();
+
+                            for (int i = 0; i < table.inputIcount; i++) {
+                                for (int j = 0; j < table.inputJcount; j++) {
+
+                                    if (table.onceTask5) {
+                                        table.arrTable[i][j] = 0;
+                                        table.onceTask5 = false;
+                                    }
+                                    System.out.print(table.arrTable[i][j] + "\t\t\t");
+                                }
+                                System.out.println();
+                            }
+
+                            int rowChoice = table.choiceRow(), colChoice = table.choiceCol();
+                            System.out.println("\nZnachenie v yacheyke: Table[" + rowChoice + "][" + colChoice + "] = " + table.getValue(rowChoice, colChoice));
+
+                        } else if (input.equals("2")) {
+
+                            System.out.println("METOD: \"table.setValue(row, col, value)\"");
+                            int rowChoice = table.choiceRow(), colChoice = table.choiceCol(), value;
+
+                            if (table.onceTask5) {
+                                for (int i = 0; i < table.inputIcount; i++) {
+                                    for (int j = 0; j < table.inputJcount; j++) {
+                                        table.arrTable[i][j] = 0;
+                                    }
+                                }
+                                table.onceTask5 = false;
+                            }
+
+                            do {
+                                System.out.print("\nVvedite tseloe chislo (ot -999 do 999): ");
+
+                                input = table.scanner.nextLine();
+
+                                System.out.println();
+
+                                try {
+                                    value = Integer.parseInt(input);
+
+                                    if (value >= -999 && value <= 999)
+                                        break;
+                                    else {
+                                        System.out.println("Neverniy vvod (diapazon: ot -999 do 999)");
+                                    }
+
+                                } catch (NumberFormatException e) {
+                                    System.out.println("Neverniy vvod (diapazon: ot -999 do 999)");
+                                }
+                            } while (true);
+
+                            table.setValue(rowChoice, colChoice, value);
+                        } else if (input.equals("3")) {
+                            System.out.println("METOD: \"table.rows()\"");
+                            System.out.println("\nNasha tablitsa: ");
+                            for (int i = 0; i < table.inputIcount; i++) {
+                                for (int j = 0; j < table.inputJcount; j++) {
+                                    System.out.print(table.arrTable[i][j] + "\t\t\t");
+                                }
+                                System.out.println();
+                            }
+                            System.out.println("\nChislo strok v tekuschey tablitse: " + table.rows());
+
+                        } else if (input.equals("4")) {
+                            System.out.println("METOD: \"table.cols()\"");
+                            System.out.println("\nNasha tablitsa: ");
+                            for (int i = 0; i < table.inputIcount; i++) {
+                                for (int j = 0; j < table.inputJcount; j++) {
+                                    System.out.print(table.arrTable[i][j] + "\t\t\t");
+                                }
+                                System.out.println();
+                            }
+                            System.out.println("\nChislo stolbtsov v tekuschey tablitse: " + table.cols());
+
+                        } else if (input.equals("5")) {
+                            System.out.println("METOD: \"table.toString()\"");
+                            System.out.println("\nTekuschaya tablitsa v vide stroki: ");
+                            System.out.println("\n" + table.toString());
+                        }
+
+                        else if (input.equals("6")) {
+                            System.out.println("METOD: \"table.average()\"");
+                            System.out.println("\nNasha tablitsa: ");
+                            for (int i = 0; i < table.inputIcount; i++) {
+                                for (int j = 0; j < table.inputJcount; j++) {
+                                    System.out.print(table.arrTable[i][j] + "\t\t\t");
+                                }
+                                System.out.println();
+                            }
+                            System.out.println("\nSrednee arifmeticheskoe vseh elementov tablitsy: " + table.average());
+                        }
+                        else
+                            System.out.println("\n\nNeverniy vvod. Poprobuyte snova");
+                    } while (true);
+
             }
             else
                 System.out.println("\nNeverniy vvod. Poprobuyte snova");
