@@ -1,5 +1,8 @@
 package com.AlexeyPopov1984;
 
+import com.AlexeyPopov1984.geometry2d.Circle;
+import com.AlexeyPopov1984.exceptions.InvalidRadiusException;
+
 import java.util.Scanner;
 
 class Main {
@@ -19,7 +22,7 @@ class Main {
             System.out.println("4. Napishite klass \"OddEvenSeparator\", v kotoriy mozhno dobavlyat' chisla...");
             System.out.println("5. Realizuyte klass \"Table\", kotoriy hranit tselye chisla v dvumernoy tablitse...");
             System.out.println("6. Realizovat' sleduyuschie pakety...\n");
-            System.out.print("Vvedite nomer zadachi (ot 1 do 5) ili 'q' dlya vyhoda: ");
+            System.out.print("Vvedite nomer zadachi (ot 1 do 6) ili 'q' dlya vyhoda: ");
 
             String input = menuScanner.nextLine();
 
@@ -34,8 +37,7 @@ class Main {
             else if (input.equals("4")) {
                 OddEvenSeparator oddEvenSeparator = new OddEvenSeparator();
                 oddEvenSeparator.dataEntryTask_4();
-            }
-            else if (input.equals("5")) {
+            } else if (input.equals("5")) {
                 //Чтобы не забыть, немного поясню (сегодня 23 ноября 2025г.): у меня 2 метода инициализируют таблицу
                 //при выборе задания 5 лабораторной 2. Методы: setRows() и setCols(). Так как нет возможности создать
                 //один объект класса Table с помощью одного конструктора, принимающего в качестве параметров эти 2 метода
@@ -156,9 +158,7 @@ class Main {
                             System.out.println("METOD: \"table.toString()\"");
                             System.out.println("\nTekuschaya tablitsa v vide stroki: ");
                             System.out.println("\n" + table.toString());
-                        }
-
-                        else if (input.equals("6")) {
+                        } else if (input.equals("6")) {
                             System.out.println("METOD: \"table.average()\"");
                             System.out.println("\nNasha tablitsa: ");
                             for (int i = 0; i < table.inputIcount; i++) {
@@ -168,13 +168,51 @@ class Main {
                                 System.out.println();
                             }
                             System.out.println("\nSrednee arifmeticheskoe vseh elementov tablitsy: " + table.average());
-                        }
-                        else
+                        } else
                             System.out.println("\n\nNeverniy vvod. Poprobuyte snova");
                     } while (true);
+            } else if (input.equals("6")) {
+                Scanner scannerTask_6 = new Scanner(System.in);
+                String inputDlinPryam, inputShirPryam, inputOsnTsil, inputHeightTsil;
+                do {
+                    System.out.println("\nVYCHISLENIE PARAMETROV FIGURY");
+                    System.out.println("1. Ploschad' kruga");
+                    System.out.println("2. Ploschad' pryamougol'nika");
+                    System.out.println("3. Ob'em tsilindra");
 
-            }
-            else
+                    System.out.print("\nVvedite nomer ot 1 do 3 ili 'q' dlya vyhoda: ");
+
+                    input = scannerTask_6.nextLine();
+
+                    if (input.equalsIgnoreCase("q"))
+                        break;
+
+                    else if (input.equals("1")) {
+
+                        try {
+                            Circle circle = new Circle();
+                        } catch (InvalidRadiusException e) {
+                            System.out.println(e.getMessage());
+                        }
+
+                    } else if (input.equals("2")) {
+
+                        System.out.println("VVOD DLINY I SHIRINY PRYAMOUGOL'NIKA:");
+                        System.out.println();
+                        inputDlinPryam = scannerTask_6.nextLine();
+                        inputShirPryam = scannerTask_6.nextLine();
+
+                    } else if (input.equals("3")) {
+
+                        System.out.println("VVOD OSNOVANIYA I VYSOTY TSILINDRA");
+                        System.out.println();
+                        inputHeightTsil = scannerTask_6.nextLine();
+                        inputOsnTsil = scannerTask_6.nextLine();
+
+                    } else
+                        System.out.println("\n\nNeverniy vvod. Poprobuyte snova");
+                } while (true);
+            } else
                 System.out.println("\nNeverniy vvod. Poprobuyte snova");
         } while (true);
     }
