@@ -197,10 +197,11 @@ class Main {
 
                     } else if (input.equals("2")) {
 
-                        System.out.println("VVOD DLINY I SHIRINY PRYAMOUGOL'NIKA:");
-                        System.out.println();
-                        inputDlinPryam = scannerTask_6.nextLine();
-                        inputShirPryam = scannerTask_6.nextLine();
+//                        try {
+//                            Rectangle rectangle = new Rectangle();
+//                        } catch (InvalidWidthOrLengthException e) {
+//                            System.out.println(e.getMessage());
+//                        }
 
                     } else if (input.equals("3")) {
 

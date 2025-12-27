@@ -1,13 +1,12 @@
 package com.AlexeyPopov1984.geometry2d;
 
 import com.AlexeyPopov1984.exceptions.InvalidRadiusException;
-
 import java.util.Scanner;
 
 public class Circle implements Figure {
     private Scanner scannerTask_6 = new Scanner(System.in);
-    String inputRadius;
-    double radius;
+    private String inputRadius;
+    private double radius;
 
     public Circle() throws InvalidRadiusException {
         do {
@@ -20,9 +19,11 @@ public class Circle implements Figure {
                 try {
                     radius = Double.parseDouble(inputRadius);
                     if (radius <= 0) {
-                        throw new InvalidRadiusException("Radius dolzhen byt' > 0");
+                        throw new InvalidRadiusException();
                     }
                     System.out.print("\nPloschad' kruga: " +  (double) Math.round(area() * 1000) / 1000);
+                    System.out.print("\nDlina okruzhnosti: " +  (double) Math.round(perimeter() * 1000) / 1000);
+                    System.out.print("\n" + toString());
                     System.out.println();
                     break;
                 } catch (NumberFormatException e) {
