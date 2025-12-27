@@ -20,9 +20,8 @@ public class Cylinder implements Figure {
             } else {
                 try {
                     vysota = Double.parseDouble(inputVysota);
-
                     if (vysota <= 0) {
-                        throw new InvalidWidthOrLengthException();
+                        throw new InvalidWidthOrLengthException("Vysota dolzhna byt' > 0");
                     }
                     break;
                 } catch (NumberFormatException e) {
@@ -40,7 +39,7 @@ public class Cylinder implements Figure {
                 try {
                     radius = Double.parseDouble(inputRadius);
                     if (radius <= 0) {
-                        throw new InvalidWidthOrLengthException();
+                        throw new InvalidWidthOrLengthException("Radius dolzhen byt' > 0");
                     } else {
                         System.out.print("\nDlina okruzhnosti osnovaniya tsilindra: " + (double) Math.round(perimeter() * 1000) / 1000);
                         System.out.print("\nPloschad' osnovaniya tsilindra: " + (double) Math.round(area() * 1000) / 1000);
