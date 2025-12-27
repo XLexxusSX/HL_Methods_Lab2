@@ -2,6 +2,8 @@ package com.AlexeyPopov1984;
 
 import com.AlexeyPopov1984.geometry2d.Circle;
 import com.AlexeyPopov1984.exceptions.InvalidRadiusException;
+import com.AlexeyPopov1984.exceptions.InvalidWidthOrLengthException;
+import com.AlexeyPopov1984.geometry2d.Rectangle;
 
 import java.util.Scanner;
 
@@ -197,11 +199,11 @@ class Main {
 
                     } else if (input.equals("2")) {
 
-//                        try {
-//                            Rectangle rectangle = new Rectangle();
-//                        } catch (InvalidWidthOrLengthException e) {
-//                            System.out.println(e.getMessage());
-//                        }
+                        try {
+                            Rectangle rectangle = new Rectangle();
+                        } catch (InvalidWidthOrLengthException e) {
+                            System.out.println(e.getMessage());
+                        }
 
                     } else if (input.equals("3")) {
 
