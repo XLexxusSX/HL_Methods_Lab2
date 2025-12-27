@@ -1,8 +1,6 @@
 package com.AlexeyPopov1984.geometry2d;
 
 import java.util.Scanner;
-
-import com.AlexeyPopov1984.exceptions.InvalidRadiusException;
 import com.AlexeyPopov1984.exceptions.InvalidWidthOrLengthException;
 
 public class Rectangle implements Figure {
@@ -13,6 +11,7 @@ public class Rectangle implements Figure {
     private String inputShirina;
 
     public Rectangle() throws InvalidWidthOrLengthException {
+        boolean dlinaBolsheShiriny = true;
         do {
             System.out.print("Vvedite shirinu pryamougol'nika ili \"q\" dlya vyhoda: ");
             inputShirina = scannerTask_6.nextLine();
@@ -42,15 +41,27 @@ public class Rectangle implements Figure {
                     if (dlina <= 0) {
                         throw new InvalidWidthOrLengthException();
                     }
-                    break;
+
+                    if (dlina > shirina) {
+                        dlinaBolsheShiriny = true;
+                        break;
+                    }
+                    else {
+                        System.out.print("\nDlina dolzhna byt' bol'she shiriny. ");
+                        dlinaBolsheShiriny = false;
+                    }
                 } catch (NumberFormatException e) {
                     System.out.print("\nNeverniy vvod, povtorite. ");
                 }
             }
         } while (true);
-        System.out.println("\nPloschad' pryamougol'nika: " + area());
-        System.out.println("Perimetr pryamougol'nika: " + perimeter());
-        System.out.println(toString());
+
+        if (dlinaBolsheShiriny) {
+            System.out.println("\nPloschad' pryamougol'nika: " + area());
+            System.out.println("Perimetr pryamougol'nika: " + perimeter());
+            System.out.println(toString());
+        }
+        else System.out.print("\nDlina dolzhna byt' bol'she shiriny. ");
     }
 
     @Override

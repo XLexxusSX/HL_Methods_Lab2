@@ -4,6 +4,7 @@ import com.AlexeyPopov1984.geometry2d.Circle;
 import com.AlexeyPopov1984.exceptions.InvalidRadiusException;
 import com.AlexeyPopov1984.exceptions.InvalidWidthOrLengthException;
 import com.AlexeyPopov1984.geometry2d.Rectangle;
+import com.AlexeyPopov1984.geometry3d.Cylinder;
 
 import java.util.Scanner;
 
@@ -207,10 +208,11 @@ class Main {
 
                     } else if (input.equals("3")) {
 
-                        System.out.println("VVOD OSNOVANIYA I VYSOTY TSILINDRA");
-                        System.out.println();
-                        inputHeightTsil = scannerTask_6.nextLine();
-                        inputOsnTsil = scannerTask_6.nextLine();
+                        try {
+                            Cylinder cylinder = new Cylinder();
+                        } catch (InvalidWidthOrLengthException e) {
+                            System.out.println(e.getMessage());
+                        }
 
                     } else
                         System.out.println("\n\nNeverniy vvod. Poprobuyte snova");

@@ -3,25 +3,69 @@ package com.AlexeyPopov1984.geometry3d;
 import com.AlexeyPopov1984.geometry2d.Figure;
 import com.AlexeyPopov1984.exceptions.InvalidWidthOrLengthException;
 
+import java.util.Scanner;
 
-public class Cylinder {
-    private Figure osnovanie;
-    private double height;
+public class Cylinder implements Figure {
+    private double vysota, radius;
+    private String inputVysota, inputRadius;
+    private Scanner scannerTask_6 = new Scanner(System.in);
 
-    public Cylinder(Figure base, double height) throws InvalidWidthOrLengthException {
-        if (height <= 0) {
-            throw new InvalidWidthOrLengthException("Vysota dolzhna byt' >= 0");
-        }
-        this.osnovanie = base;
-        this.height = height;
+    public Cylinder() throws InvalidWidthOrLengthException {
+
+        do {
+            System.out.print("Vvedite vysotu tsilindra ili \"q\" dlya vyhoda: ");
+            inputVysota = scannerTask_6.nextLine();
+            if (inputVysota.equalsIgnoreCase("q")) {
+                break;
+            } else {
+                try {
+                    vysota = Double.parseDouble(inputVysota);
+
+                    if (vysota <= 0) {
+                        throw new InvalidWidthOrLengthException();
+                    }
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.print("\nNeverniy vvod, povtorite. ");
+                }
+            }
+        } while (true);
+
+        do {
+            System.out.print("Vvedite radius osnovaniya tsilindra ili \"q\" dlya vyhoda: ");
+            inputRadius = scannerTask_6.nextLine();
+            if (inputRadius.equalsIgnoreCase("q")) {
+                break;
+            } else {
+                try {
+                    radius = Double.parseDouble(inputRadius);
+                    if (radius <= 0) {
+                        throw new InvalidWidthOrLengthException();
+                    } else {
+                        System.out.print("\nDlina okruzhnosti osnovaniya tsilindra: " + (double) Math.round(perimeter() * 1000) / 1000);
+                        System.out.print("\nPloschad' osnovaniya tsilindra: " + (double) Math.round(area() * 1000) / 1000);
+                        System.out.print("\nOb'em tsilindra: " + (double) Math.round(vysota * area() * 1000) / 1000 + "\n");
+                    }
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.print("\nNeverniy vvod, povtorite. ");
+                }
+            }
+        } while (true);
     }
 
-    public double PlosOsn() {
-        return osnovanie.area() * height;
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double perimeter() {
+        return 2 * Math.PI * radius;
     }
 
     @Override
     public String toString() {
-        return "Tsilindr s osnovaniem " + osnovanie.toString() + " i vysotoy " + height;
+        return "Osnovanie tsilindra: " + toString() + "\nVysota tsilindra: " + vysota;
     }
 }
